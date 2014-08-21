@@ -1,0 +1,32 @@
+{
+	"fruits":[
+		{
+			"name":"apple",
+			"rate":"100",
+			"image1":"apple/img1.jpg",
+			"image2":"apple/img2.jpg",
+			"image3":"apple/img3.jpg"
+		},
+		{
+			"name":"orange",
+			"rate":"100",
+			"image1":"orange/img1.jpg",
+			"image2":"apple/img2.jpg",
+			"image3":"apple/img3.jpg"
+		},
+		{
+			"name":"banana",
+			"rate":"100",
+			"image1":"banana/img1.jpg",
+			"image2":"apple/img2.jpg",
+			"image3":"apple/img3.jpg"
+		},
+		{
+			"name":"pineapple",
+			"rate":"100",
+			"image1":"pineapple/img1.jpg",
+			"image2":"apple/img2.jpg",
+			"image3":"apple/img3.jpg"
+		}
+	]
+}
