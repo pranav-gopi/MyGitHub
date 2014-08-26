@@ -36,3 +36,10 @@ Icon
 .Trashes
 
 *.bak
+
+# Java project unnecessary files and directories
+/Lab/RemoteSystemsTempFiles
+/Lab/.metadata
+/Lab/**/.settings
+/Lab/**/.classpath
+/Lab/**/.project
