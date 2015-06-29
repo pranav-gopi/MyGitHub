@@ -1,0 +1,2 @@
+serviceClass: com.extreme.boti.client.GreetingService
+path: 9A9DDC35C8AAAE6A253554E0ACFA4D73.gwt.rpc
