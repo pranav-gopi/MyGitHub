@@ -15,28 +15,76 @@ public class LinkedList {
 		return length;
 	}
 	
-	public void insert(int data){
+	public void insert(int data, int pos){
+		int curPos = 0;
+		Node curNode = head, temp = null;
+		while(curPos<pos){
+			curPos ++;
+			temp = curNode;
+			curNode = curNode.next;
+		}
+		
 		Node newNode = new Node();
 		newNode.data = data;
-		newNode.next = head;
-		head = newNode;
+		newNode.next = curNode;
+		
+		if(pos == 0){
+			head = newNode;
+		}else{
+			temp.next = newNode;
+		}
+		
 	}
 	
 	public int remove(int pos){
+		int val = 0;
 		if(head == null){
-			return 0;
+			return val;
+		}else if(pos == 0){
+			val = head.data;
+			head = head.next;
 		}else{
-			int i = 0;
-			Node node = head;
-			return 0;
+			
+			int curPos = 1;
+			Node curNode = head;
+			
+			while(curPos < pos && curNode != null){
+				curPos ++;
+				curNode = curNode.next;
+			}
+			if(curNode != null){
+				Node toRemove = curNode.next;
+				if(toRemove != null){
+					val = toRemove.data;
+					curNode.next = toRemove.next;
+				}
+			}
 		}
+		return val;
+	}
+	
+	
+	public String toString(){
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("[ ");
+		Node node = head;
+		while(true){
+			buffer.append(node.data);
+			node = node.next;
+			if(node != null){
+				buffer.append(", ");
+			}else{
+				break;
+			}
+		}
+		buffer.append(" ]");
+		return buffer.toString();
 	}
 	
 	
 	class Node{
-		
-		public int data;
-		public Node next;
+		int data;
+		Node next;
 		
 	}
 	
