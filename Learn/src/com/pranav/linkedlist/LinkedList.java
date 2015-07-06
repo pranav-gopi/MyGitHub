@@ -15,10 +15,10 @@ public class LinkedList {
 		return length;
 	}
 	
-	public void insert(int data, int pos){
+	public void add(int data, int pos){
 		int curPos = 0;
 		Node curNode = head, temp = null;
-		while(curPos<pos){
+		while(curPos<pos && curNode!=null){
 			curPos ++;
 			temp = curNode;
 			curNode = curNode.next;
@@ -28,17 +28,17 @@ public class LinkedList {
 		newNode.data = data;
 		newNode.next = curNode;
 		
-		if(pos == 0){
+		if(temp == null){
 			head = newNode;
-		}else{
+		}else if(temp!=null){
 			temp.next = newNode;
-		}
-		
+		}	
 	}
 	
 	public int remove(int pos){
 		int val = 0;
 		if(head == null){
+			System.out.println("No such element");
 			return val;
 		}else if(pos == 0){
 			val = head.data;
@@ -57,24 +57,45 @@ public class LinkedList {
 				if(toRemove != null){
 					val = toRemove.data;
 					curNode.next = toRemove.next;
+				}else{
+					System.out.println("No such element");
 				}
+			}else{
+				System.out.println("No such element");
 			}
 		}
 		return val;
 	}
 	
+	public int get(int pos){
+		
+		Node curNode = head;
+		int curPos = 0;
+		while( curNode!= null && curPos < pos){
+			curPos++;
+			curNode = curNode.next;
+		}
+		if(curPos == pos && curNode!=null){
+			return curNode.data;
+		}else{
+			System.out.println("No such Element exist");
+			return 0;
+		}
+	}
 	
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("[ ");
-		Node node = head;
-		while(true){
-			buffer.append(node.data);
-			node = node.next;
-			if(node != null){
-				buffer.append(", ");
-			}else{
-				break;
+		if(head!=null){
+			Node node = head;
+			while(true){
+				buffer.append(node.data);
+				node = node.next;
+				if(node != null){
+					buffer.append(", ");
+				}else{
+					break;
+				}
 			}
 		}
 		buffer.append(" ]");
